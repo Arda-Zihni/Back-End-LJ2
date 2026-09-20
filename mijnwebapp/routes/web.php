@@ -18,3 +18,10 @@ Route::middleware('auth')->group(function () {
 });
 
 require __DIR__.'/auth.php';
+
+use App\Http\Controllers\MagazijnController;
+
+Route::middleware(['auth'])->group(function () {
+    Route::get('/magazijn', [MagazijnController::class, 'index'])->name('magazijn.index');
+    Route::get('/magazijn/levering/{productId}', [MagazijnController::class, 'levering'])->name('magazijn.levering');
+});
