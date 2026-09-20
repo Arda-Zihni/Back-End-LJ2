@@ -23,14 +23,14 @@
                         </tr>
                     </thead>
                     <tbody>
-                        @foreach($leveringen as $l)
-                        <tr>
-                            <td class="border border-gray-300 px-4 py-2">{{ $l->ProductNaam }}</td>
-                            <td class="border border-gray-300 px-4 py-2 text-center">{{ date('d-m-Y', strtotime($l->DatumLevering)) }}</td>
-                            <td class="border border-gray-300 px-4 py-2 text-center">{{ $l->Aantal }}</td>
-                            <td class="border border-gray-300 px-4 py-2 text-center">{{ $l->DatumEerstVolgendeLevering ? date('d-m-Y', strtotime($l->DatumEerstVolgendeLevering)) : '-' }}</td>
-                        </tr>
-                        @endforeach
+ @foreach($leveringen as $levering)
+<tr>
+    <td class="border border-gray-300 px-4 py-2">{{ $levering->ProductNaam }}</td>
+    <td class="border border-gray-300 px-4 py-2 text-center">{{ date('d-m-Y', strtotime($levering->DatumLevering)) }}</td>
+    <td class="border border-gray-300 px-4 py-2 text-center">{{ $levering->Aantal }}</td>
+    <td class="border border-gray-300 px-4 py-2 text-center">{{ $levering->DatumEerstVolgendeLevering ? date('d-m-Y', strtotime($levering->DatumEerstVolgendeLevering)) : '-' }}</td>
+</tr>
+@endforeach
                     </tbody>
                 </table>
             </div>

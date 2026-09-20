@@ -71,4 +71,25 @@ class MagazijnController extends Controller
 
         return view('magazijn.levering', compact('leverancier', 'leveringen'));
     }
+    // User Story 2: Allergeneninformatie
+    public function allergenen($productId)
+    {
+        $product = DB::table('Product')->where('Id', $productId)->first();
+
+        // Haal gekoppelde allergenen op
+        $allergenen = DB::table('ProductPerAllergeen')
+            ->join('Allergeen', 'ProductPerAllergeen.AllergeenId', '=', 'Allergeen.Id')
+            ->where('ProductPerAllergeen.ProductId', $productId)
+            ->select('Allergeen.Naam', 'Allergeen.Omschrijving')
+            ->orderBy('Allergeen.Naam', 'asc')
+            ->get();
+
+        // Scenario 02: Geen allergenen aanwezig (bijv. Cola Flesjes)
+        if ($allergenen->isEmpty()) {
+            return view('magazijn.geen_allergenen');
+        }
+
+        // Scenario 01: Wel allergenen aanwezig
+        return view('magazijn.allergenen', compact('product', 'allergenen'));
+    }
 }

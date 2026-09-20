@@ -25,7 +25,7 @@
                             <td class="border border-gray-300 px-4 py-2 text-center">{{ $p->VerpakkingsEenheid }}</td>
                             <td class="border border-gray-300 px-4 py-2 text-center">{{ $p->AantalAanwezig ?? '0' }}</td>
                             <td class="border border-gray-300 px-4 py-2 text-center">
-                                <a href="#" class="text-red-600 font-bold text-lg">❌</a>
+                                <a href="{{ route('magazijn.allergenen', $p->ProductId) }}" class="text-red-600 font-bold text-lg">❌</a>
                             </td>
                             <td class="border border-gray-300 px-4 py-2 text-center">
                                 <a href="{{ route('magazijn.levering', $p->ProductId) }}" class="text-blue-600 font-bold text-lg">❓</a>
