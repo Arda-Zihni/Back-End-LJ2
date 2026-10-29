@@ -85,7 +85,7 @@ class MagazijnController extends Controller
 
         // Scenario 02: Geen allergenen aanwezig (bijv. Cola Flesjes)
         if ($allergenen->isEmpty()) {
-            return view('magazijn.geen_allergenen');
+            return view('magazijn.geen_allergenen', compact('product'));
         }
 
         // Scenario 01: Wel allergenen aanwezig

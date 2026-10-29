@@ -28,7 +28,7 @@
                                     <a href="{{ route('magazijn.allergenen', $product->ProductId) }}" class="text-red-600 font-bold text-lg">❌</a>
                                 </td>
                                 <td class="border border-gray-300 px-4 py-2 text-center">
-                                    <a href="{{ route('magazijn.levering', $product->ProductId) }}" class="text-blue-600 font-bold text-lg">?</a>
+                                    <a href="{{ route('magazijn.levering', $product->ProductId) }}" class="text-blue-600 font-bold text-lg" style="color: #2563eb;">?</a>
                                 </td>
                             </tr>
                         @endforeach
